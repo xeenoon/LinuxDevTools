@@ -20,11 +20,14 @@ int main() {
 	{
 		if((((uint64_t)(1)<<(63-bitidx))&input)==0)
 		{
-			std::cout << "0";
+			//std::cout << "\x1B[36m0\033[0m\t\t"; //Print cyan
+			 cout << "\033[1;36m0\033[0m";
 		}
 		else
 		{
-			std::cout << "1";
+			cout << "\033[1;32m1\033[0m";
+
+			//std::cout << "\x1B[32m1\033[0m\t\t"; //Print green
 		}	
 		std::cout << " ";
 		if((bitidx+1)%8==0)
