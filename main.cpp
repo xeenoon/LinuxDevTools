@@ -1,4 +1,5 @@
-
+#include <iomanip>
+#include <cstdint>
 #include <iostream>
 using namespace std;
 
@@ -33,7 +34,11 @@ int main() {
 			std::cout << " ";
 			if((bitidx+1)%8==0)
 			{
-				std::cout << std::endl;
+				//Print hex value for the byte
+				int byteidx = (((63-bitidx)/8)*8);
+				uint8_t resultByte = static_cast<uint8_t>((input & (static_cast<uint64_t>(0xff)<<(byteidx))) >> (byteidx));
+				std::cout << "0x"
+					  << std::setfill('0') << std::setw(2) << std::hex << static_cast<int>(resultByte) << std::endl;
 			}
 		}
 	}
